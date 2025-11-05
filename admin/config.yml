@@ -1,0 +1,5 @@
+# Zmień z:
+# file: "data.json"
+
+# Na:
+file: "../data.json"
