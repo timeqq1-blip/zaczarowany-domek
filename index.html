@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🏠 Przedszkole Niepubliczne nr 1 w Zgorzelcu - Zaczarowany Domek</title>
+    <style>
+        /* CSS strony, jak było */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', sans-serif; line-height: 1.6; color: #333; background: linear-gradient(135deg, #fff9e6 0%, #fff0f5 50%, #e6f3ff 100%); min-height: 100vh; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+        header { background: linear-gradient(90deg, #FF6B9D 0%, #FFA502 25%, #FFD93D 50%, #6BCF7F 75%, #4D96FF 100%); color: white; padding: 1.5rem 0; position: sticky; top: 0; z-index: 100; box-shadow: 0 4px 20px rgba(0,0,0,0.15); }
+        nav { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 2rem; }
+        .logo-section { display: flex; align-items: center; gap: 1rem; }
+        .logo-img { width: 60px; height: 60px; border-radius: 50%; background: white; padding: 5px; box-shadow: 0 2px 10px rgba(0,0,0,0.2); }
+        .logo-text { font-size: 1.5rem; font-weight: bold; text-shadow: 2px 2px 4px rgba(0,0,0,0.2); cursor: pointer; }
+        nav ul { display: flex; list-style: none; gap: 2rem; flex-wrap: wrap; }
+        nav a { color: white; text-decoration: none; font-weight: 600; cursor: pointer; }
+        .edit-btn { background: rgba(255,255,255,0.3); color: white; padding: 0.6rem 1.2rem; border-radius: 25px; cursor: pointer; border: 2px white solid; font-weight: bold; }
+
+        .hero { background: linear-gradient(135deg, #FF6B9D 0%, #FFA502 25%, #FFD93D 50%, #6BCF7F 75%, #4D96FF 100%); color: white; text-align: center; padding: 5rem 2rem; border-radius: 20px; margin: 2rem 0; box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+        .hero h1 { font-size: 3.5rem; margin-bottom: 1rem; text-shadow: 3px 3px 6px rgba(0,0,0,0.2); }
+        .hero p { font-size: 1.3rem; margin-bottom: 2rem; opacity: 0.95; text-shadow: 2px 2px 4px rgba(0,0,0,0.2); }
+
+        .btn { display: inline-block; background: linear-gradient(135deg, #FF6B9D, #FFA502); color: white; padding: 1rem 2.5rem; text-decoration: none; border-radius: 50px; font-weight: bold; transition: all 0.3s; border: none; cursor: pointer; font-size: 1rem; margin: 0.5rem; box-shadow: 0 5px 15px rgba(255,107,157,0.4); }
+        .btn:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(255,107,157,0.6); }
+        .btn-secondary { background: linear-gradient(135deg, #FFD93D, #6BCF7F); }
+
+        section { padding: 4rem 2rem; }
+        section h2 { font-size: 2.8rem; margin-bottom: 2rem; text-align: center; background: linear-gradient(90deg, #FF6B9D, #FFA502, #FFD93D, #6BCF7F, #4D96FF); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: bold; }
+        section h3 { font-size: 1.8rem; margin-bottom: 1rem; color: #FF6B9D; font-weight: bold; }
+
+        .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 2rem; }
+        .feature-card { background: white; padding: 2rem; border-radius: 15px; text-align: center; box-shadow: 0 5px 20px rgba(0,0,0,0.1); transition: all 0.3s; border-top: 4px solid; border-image: linear-gradient(90deg, #FF6B9D, #FFA502, #FFD93D, #6BCF7F, #4D96FF) 1; }
+        .feature-card:hover { transform: translateY(-10px); box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+        .feature-icon { font-size: 3.5rem; margin-bottom: 1rem; }
+
+        .about-content { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
+        .about-text { background: white; padding: 2.5rem; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); border-left: 5px solid; border-image: linear-gradient(180deg, #FF6B9D, #FFA502, #FFD93D, #6BCF7F, #4D96FF) 1; }
+        .about-text p { margin-bottom: 1rem; line-height: 1.9; color: #555; }
+        .about-text ul { margin-left: 2rem; line-height: 2.2; }
+
+        .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
+        .gallery-item { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.1); transition: all 0.3s; }
+        .gallery-item:hover { transform: scale(1.05); box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+        .gallery-img { width: 100%; height: 280px; background: linear-gradient(135deg, #FF6B9D 0%, #FFA502 25%, #FFD93D 50%, #6BCF7F 75%, #4D96FF 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 4rem; }
+        .gallery-title { padding: 1rem; text-align: center; font-weight: bold; color: #FF6B9D; }
+
+        .downloads { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; }
+        .download-item { background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); transition: all 0.3s; }
+        .download-item:hover { box-shadow: 0 10px 30px rgba(0,0,0,0.15); }
+        .download-item h3 { margin-bottom: 1rem; color: #FF6B9D; }
+        .download-item p { margin-bottom: 1.5rem; color: #666; }
+
+        .contact-info { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        .contact-card { background: white; padding: 2rem; border-radius: 15px; text-align: center; box-shadow: 0 5px 20px rgba(0,0,0,0.1); transition: all 0.3s; }
+        .contact-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+        .contact-card h3 { margin-bottom: 1rem; color: #FF6B9D; }
+
+        footer { background: linear-gradient(90deg, #2C3E50 0%, #34495E 100%); color: white; text-align: center; padding: 2.5rem; margin-top: 3rem; }
+
+        @media (max-width: 768px) { nav { flex-direction: column; gap: 1rem; } nav ul { gap: 1rem; flex-direction: column; align-items: center; } .hero h1 { font-size: 2rem; } .about-content { grid-template-columns: 1fr; } section h2 { font-size: 2rem; } }
+
+        .section { display: none; }
+        .section.active { display: block; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav class="container">
+            <div class="logo-section">
+                <img src="https://user-gen-media-assets.s3.amazonaws.com/seedream_images/49c05574-bc03-4ebd-9315-93eac2df8307.png" alt="Logo" class="logo-img">
+                <a class="logo-text" onclick="showSection('home')">Zaczarowany Domek</a>
+            </div>
+            <ul>
+                <li><a onclick="showSection('home')">Strona główna</a></li>
+                <li><a onclick="showSection('about')">O nas</a></li>
+                <li><a onclick="showSection('offers')">Oferta</a></li>
+                <li><a onclick="showSection('gallery')">Galeria</a></li>
+                <li><a onclick="showSection('downloads')">Pliki do pobrania</a></li>
+                <li><a onclick="showSection('contact')">Kontakt</a></li>
+            </ul>
+            <a class="edit-btn" href="/admin/">🎛️ PANEL ADMINA</a>
+        </nav>
+    </header>
+
+    <div id="home" class="section active">
+        <div class="hero">
+            <h1>🏠 Witaj w Zaczarowanym Domku!</h1>
+            <p>Przedszkole Niepubliczne nr 1 w Zgorzelcu</p>
+            <p style="font-size: 1.1rem;">Zapewniamy wszechstronny rozwój, bezpieczeństwo i opiekę dla najmłodszych</p>
+            <a class="btn" onclick="showSection('about')">Dowiedz się więcej</a>
+            <a class="btn btn-secondary" onclick="showSection('contact')">Skontaktuj się z nami</a>
+        </div>
+        <section class="container">
+            <h2>✨ Co nas wyróżnia?</h2>
+            <div class="features">
+                <div class="feature-card"><div class="feature-icon">👶</div><h3>Bezpieczeństwo</h3></div>
+                <div class="feature-card"><div class="feature-icon">📚</div><h3>Edukacja</h3></div>
+                <div class="feature-card"><div class="feature-icon">🎵</div><h3>Zajęcia z Filharmonią</h3></div>
+                <div class="feature-card"><div class="feature-icon">❤️</div><h3>Opieka</h3></div>
+            </div>
+        </section>
+    </div>
+
+    <div id="about" class="section">
+        <section class="container">
+            <h2>🌈 O przedszkolu</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Nasza Historia</h3>
+                    <p id="aboutHistoryDisplay">Tutaj pojawi się treść z pliku data.json</p>
+                    <h3>Nasze Wartości</h3>
+                    <ul id="aboutValuesDisplay">
+                        <li>Tutaj pojawią się wartości z pliku data.json</li>
+                    </ul>
+                </div>
+                <div class="about-text">
+                    <h3>Zarządzanie i Zespół</h3>
+                    <p><strong>Dyrektor:</strong> <span id="directorDisplay">Bogusława Bacęga</span></p>
+                    <p><strong>Zastępca Dyrektora:</strong> <span id="deputyDisplay">Asia Świerk</span></p>
+                    <h3>Godziny Pracy</h3>
+                    <p id="hoursDisplay"><strong>Poniedziałek - Piątek: 6:30 - 16:30</strong></p>
+                    <h3>Lokalizacja</h3>
+                    <p>ul. Staszica 19<br>59-900 Zgorzelec, Polska</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div id="offers" class="section">
+        <section class="container">
+            <h2>🎨 Nasza Oferta</h2>
+            <div class="features">
+                <div class="feature-card"><div class="feature-icon">🗣️</div><h3>Zajęcia z Logopedą</h3></div>
+                <div class="feature-card"><div class="feature-icon">🇬🇧</div><h3>Angielski dla Dzieci</h3></div>
+                <div class="feature-card"><div class="feature-icon">💃</div><h3>Rytmika</h3></div>
+                <div class="feature-card"><div class="feature-icon">🎼</div><h3>Zajęcia z Filharmonią</h3></div>
+                <div class="feature-card"><div class="feature-icon">🎨</div><h3>Zajęcia Artystyczne</h3></div>
+                <div class="feature-card"><div class="feature-icon">🏃</div><h3>Zabawy Ruchowe</h3></div>
+                <div class="feature-card"><div class="feature-icon">🍎</div><h3>Zdrowe Posiłki</h3></div>
+                <div class="feature-card"><div class="feature-icon">📚</div><h3>Zajęcia Edukacyjne</h3></div>
+            </div>
+        </section>
+    </div>
+
+    <div id="gallery" class="section">
+        <section class="container">
+            <h2>📸 Galeria</h2>
+            <div class="gallery">
+                <div class="gallery-item"><div class
