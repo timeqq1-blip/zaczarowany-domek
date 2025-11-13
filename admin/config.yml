@@ -1,5 +1,31 @@
-# Zmień z:
-# file: "data.json"
+# Plik: admin/config.yml
 
-# Na:
-file: "../data.json"
+# Ustawienie "zaplecza" - łączy się z GitHub przez Netlify
+backend:
+  name: git-gateway
+  branch: main
+
+# Te linie są wymagane przez CMS, nawet jeśli ich nie używamy
+media_folder: "images"
+public_folder: "/images"
+
+# Definicja pól, które można edytować
+collections:
+  - name: "ustawienia"
+    label: "Ustawienia Strony"
+    description: "Zarządzaj treścią na stronie głównej"
+    files:
+      - file: "data.json" # Mówi panelowi, że ma edytować plik data.json
+        label: "Główne Dane Strony"
+        name: "dane"
+        fields: # Pola formularza, które pojawią się w panelu
+          - { label: "Pełna nazwa przedszkola", name: "schoolName", widget: "string" }
+          - { label: "Krótka nazwa (w logo)", name: "shortName", widget: "string" }
+          - { label: "Dyrektor", name: "director", widget: "string" }
+          - { label: "Zastępca Dyrektora", name: "deputy", widget: "string" }
+          - { label: "Godziny pracy", name: "hours", widget: "string" }
+          - { label: "Historia (O nas)", name: "aboutHistory", widget: "text" }
+          - { label: "Wartości (O nas, każda w nowej linii)", name: "aboutValues", widget: "text" }
+          - { label: "Telefon kontaktowy", name: "contactPhone", widget: "string" }
+          - { label: "Email kontaktowy", name: "contactEmail", widget: "string" }
+          - { label: "Link do Facebooka", name: "facebook", widget: "string" }
