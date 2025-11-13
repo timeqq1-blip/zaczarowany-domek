@@ -1,11 +1,12 @@
 # Plik: admin/config.yml
 
-# Ustawienie "zaplecza" - łączy się z GitHub przez Netlify
+# === KLUCZOWE POPRAWKI DLA LOGOWANIA ===
+# Mówi Netlify, żeby użył GitHuba (a nie e-maila/hasła)
 backend:
   name: git-gateway
   branch: main
 
-# Te linie są wymagane przez CMS, nawet jeśli ich nie używamy
+# Te linie są wymagane przez CMS
 media_folder: "images"
 public_folder: "/images"
 
@@ -15,7 +16,8 @@ collections:
     label: "Ustawienia Strony"
     description: "Zarządzaj treścią na stronie głównej"
     files:
-      - file: "data.json" # Mówi panelowi, że ma edytować plik data.json
+      # Ścieżka do pliku data.json
+      - file: "data.json" 
         label: "Główne Dane Strony"
         name: "dane"
         fields: # Pola formularza, które pojawią się w panelu
