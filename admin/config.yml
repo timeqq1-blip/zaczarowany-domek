@@ -2,25 +2,24 @@ backend:
   name: git-gateway
   branch: main
 
-media_folder: "images"
-public_folder: "/images"
+media_folder: "static/uploads"
+public_folder: "/uploads"
 
 collections:
-  - name: "ustawienia"
-    label: "Ustawienia Strony"
-    description: "Zarządzaj treścią na stronie głównej"
+  - name: "pages"
+    label: "Strony"
     files:
-      - file: "data.json"
-        label: "Główne Dane Strony"
-        name: "dane"
+      - label: "Dane przedszkola"
+        name: "site"
+        file: "data.json"
         fields:
-          - { label: "Pełna nazwa przedszkola", name: "schoolName", widget: "string" }
-          - { label: "Krótka nazwa (w logo)", name: "shortName", widget: "string" }
-          - { label: "Dyrektor", name: "director", widget: "string" }
-          - { label: "Zastępca Dyrektora", name: "deputy", widget: "string" }
-          - { label: "Godziny pracy", name: "hours", widget: "string" }
-          - { label: "Historia", name: "aboutHistory", widget: "text" }
-          - { label: "Wartości", name: "aboutValues", widget: "text" }
+          - { label: "Krótka nazwa (logo)", name: "shortName", widget: "string" }
+          - { label: "Pełna nazwa szkoły", name: "schoolName", widget: "string" }
           - { label: "Telefon kontaktowy", name: "contactPhone", widget: "string" }
-          - { label: "Adres e-mail", name: "contactEmail", widget: "string" }
+          - { label: "E-mail", name: "contactEmail", widget: "string" }
+          - { label: "Historia", name: "aboutHistory", widget: "text" }
+          - { label: "Dyrektor", name: "director", widget: "string" }
+          - { label: "Zastępca dyrektora", name: "deputy", widget: "string" }
+          - { label: "Godziny pracy", name: "hours", widget: "string" }
+          - { label: "Wartości (każda w nowej linii)", name: "aboutValues", widget: "text" }
           - { label: "Link do Facebooka", name: "facebook", widget: "string" }
